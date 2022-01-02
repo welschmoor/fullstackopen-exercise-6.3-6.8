@@ -1,7 +1,26 @@
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+
 
 const Notification = () => {
+  const [notificationState, setNotificationState] = useState('')
+  const notification = useSelector(state => state.notification)
+
+  useEffect(() => {
+    let unsub = false
+
+    if (!unsub) { setNotificationState(notification) }
+
+    setTimeout(() => {
+      setNotificationState('')
+    }, 3000)
+
+    return () => {
+      unsub = true
+    }
+  }, [notification])
+
   const style = {
     border: 'solid',
     padding: 10,
@@ -9,7 +28,7 @@ const Notification = () => {
   }
   return (
     <div style={style}>
-      render here notification...
+      {notificationState ? notificationState : <span>&nbsp;</span>}
     </div>
   )
 }

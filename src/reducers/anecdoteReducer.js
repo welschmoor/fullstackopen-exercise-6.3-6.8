@@ -9,6 +9,7 @@ const anecdotesAtStart = [
 
 export const getId = () => (100000 * Math.random()).toFixed(0)
 
+// this turns an array of strings into array of objects
 const asObject = (anecdote) => {
   return {
     content: anecdote,
@@ -34,12 +35,13 @@ export const voteDO = id => {
 
 
 
+const initialState = {
+  anecdotes: anecdotesAtStart.map(asObject),
+  notification: 'THIS IS NOTIFICATION',
+  filter: 'opt',
+}
 
-
-
-const initialState = anecdotesAtStart.map(asObject)
-
-const reducer = (state = initialState, action) => {
+const anecdotsReducer = (state = initialState.anecdotes, action) => {
   console.log('state now: ', state)
   console.log('action', action.type)
 
@@ -55,4 +57,4 @@ const reducer = (state = initialState, action) => {
   return state
 }
 
-export default reducer
+export default anecdotsReducer

@@ -1,18 +1,18 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import Anecdotes from "./components/Anecdotes"
 
+import Anecdotes from "./components/Anecdotes"
 import AnecdotesForm from './components/AnecdotesForm'
+import Notification from "./components/Notification"
+import Filter from "./components/Filter"
 
 
 const App = () => {
-  const anecdotes = useSelector(state => state)
-  const dispatch = useDispatch()
-
 
   return (
     <div>
+      <Notification />
       <h2>Anecdotes</h2>
+      <Filter />
       <Anecdotes />
 
       <h2>create new</h2>
@@ -20,5 +20,6 @@ const App = () => {
     </div>
   )
 }
+
 
 export default App
