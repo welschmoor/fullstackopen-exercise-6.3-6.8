@@ -6,15 +6,14 @@ import anecdoteService from "../services/anecdotes"
 const AnecdotesForm = () => {
   const dispatch = useDispatch()
 
-  // add new note ex6.13
+  // add new note ex6.13  and ex6.16
   const submitHandler = async e => {
     e.preventDefault()
     const inputValue = e.target.elements.anecdoteinput.value
 
     e.target.elements.anecdoteinput.value = ''
 
-    const respo = await anecdoteService.create(inputValue)
-    dispatch(createNewAnecdote(respo))
+    dispatch(createNewAnecdote(inputValue))
 
   }
 

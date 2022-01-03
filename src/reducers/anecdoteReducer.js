@@ -7,6 +7,8 @@
 //   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
 // ]
 
+import anecdoteService from "../services/anecdotes"
+
 export const getId = () => (100000 * Math.random()).toFixed(0)
 
 // this turns an array of strings into array of objects
@@ -20,10 +22,22 @@ const asObject = (anecdote) => {
 
 
 // action creators  ex6.6
-export const createNewAnecdote = function (newAnecdote) {
-  console.log("newAnec:::", newAnecdote)
-  return { type: 'ADD_NEW', data: newAnecdote }
+// export const createNewAnecdote = function (newAnecdote) {
+//   console.log("newAnec:::", newAnecdote)
+//   return { type: 'ADD_NEW', data: newAnecdote }
+// }
+
+//ex6.16
+export const createNewAnecdote = (newAnecdote) => {
+  return async dispatch => {
+    const newNote = await anecdoteService.create(newAnecdote)
+    dispatch({
+      type: 'ADD_NEW',
+      data: newNote
+    })
+  }
 }
+
 
 export const voteDO = id => {
   return { type: "VOTE", data: { id: id } }
@@ -53,10 +67,21 @@ const anecdotsReducer = (state = [], action) => {
   return state
 }
 
-export const initializeAnecdotes = (notes) => {
-  return {
-    type: 'INIT_ANECDOTES',
-    data: notes,
+// export const initializeAnecdotes = (notes) => {
+//   return {
+//     type: 'INIT_ANECDOTES',
+//     data: notes,
+//   }
+// }
+
+// ex6.15
+export const initializeAnecdotes = () => {
+  return async dispatch => {
+    const anecdotes = await anecdoteService.getAll()
+    dispatch({
+      type: 'INIT_ANECDOTES',
+      data: anecdotes,
+    })
   }
 }
 

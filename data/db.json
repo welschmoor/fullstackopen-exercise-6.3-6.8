@@ -1,29 +1,39 @@
 {
   "anecdotes": [
     {
-      "content": "If it hurts, do it more often",
       "id": "47145",
-      "votes": 0
+      "content": "If it hurts, do it more often",
+      "votes": 1
     },
     {
-      "content": "Adding manpower to a late software project makes it later!",
       "id": "21149",
-      "votes": 0
+      "content": "Adding manpower to a late software project makes it later!",
+      "votes": 1
     },
     {
+      "id": "wFPXEPL",
       "content": "wwwwwwwwwwww",
-      "votes": 0,
-      "id": "wFPXEPL"
+      "votes": 1
     },
     {
+      "id": "DiXbrJy",
       "content": "respo",
-      "votes": 0,
-      "id": "DiXbrJy"
+      "votes": 1
     },
     {
+      "id": "2NvAtkA",
       "content": "eeeeeeee",
-      "votes": 0,
-      "id": "2NvAtkA"
+      "votes": 4
+    },
+    {
+      "id": "ZFBuWpb",
+      "content": "To Be Or Not To Be",
+      "votes": 13
+    },
+    {
+      "id": "aVmz7WK",
+      "content": "Testing to create new note asynchrounously",
+      "votes": 2
     }
   ]
 }
