@@ -23,16 +23,17 @@ const Anecdotes = () => {
   // ex6.11
   const vote = (anecdote) => {
     dispatch(notificationChange(""))
-    dispatch(voteDO(anecdote.id))
 
-    anecdoteService.updateVotes(anecdote)
+    // ex 6.17
+    dispatch(voteDO(anecdote))
 
+    // anecdoteService.updateVotes(anecdote)
     setTimeout(() => {
       dispatch(notificationChange(`you voted on: "${anecdotes.find(e => e.id === anecdote.id).content}"`))
     }, 0)
   }
 
-  
+
   return (
     <ul>
       {
